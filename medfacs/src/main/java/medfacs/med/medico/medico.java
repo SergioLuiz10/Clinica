@@ -35,7 +35,8 @@ public class medico {
         this.especialidade=dados.especialidade();
         this.crm=dados.crm();
         this.telefone=dados.telefone();
-        this.email=dados.email();
         this.endereco=new EnderecoObjBank(dados.endereco());
+        this.email=dados.email();
+
     }
 }

@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("medico")
 public class medicoController {
    @Autowired
-    private medicoRepository repository;
+    private medicoRepository repositoryy;
 
     @PostMapping
     public void cadastro(@RequestBody dadosCadastro dados){
-        repository.save(new medico(dados));
+        repositoryy.save(new medico(dados));
     }
 }

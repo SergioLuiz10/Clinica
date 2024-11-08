@@ -21,11 +21,11 @@ public class EnderecoObjBank {
 
     public EnderecoObjBank(Endereco endereco) {
         this.logradouro=endereco.logradouro();
-        this.numero=endereco.logradouro();
-        this.complemento=endereco.logradouro();
-        this.cidade=endereco.logradouro();
-        this.uf=endereco.logradouro();
-        this.cep=endereco.logradouro();
+        this.numero=endereco.numero();
+        this.complemento=endereco.complemento();
+        this.cidade=endereco.cidade();
+        this.uf=endereco.uf();
+        this.cep=endereco.cep();
 
     }
 }
