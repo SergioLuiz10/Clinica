@@ -5,14 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import medfacs.med.endereco.EnderecoObjBank;
+import medfacs.med.endereco.enderecoObjBank;
 
 @Table(name = "medico")
-@Entity(name = "Medico")
+@Entity(name = "medico")
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id") //ele ve se o campo id de um objeto é igual ao id do outro.
+@EqualsAndHashCode(of = "id")
 public class medico {
 
     @Id
@@ -24,19 +24,18 @@ public class medico {
     private String crm;
 
     @Enumerated(EnumType.STRING)//enum
-    private Especialidade especialidade;
+    private medfacs.med.medico.especialidade especialidade;
 
     @Embedded//pq o codigo e dividido em mais de um pedaço
-    private EnderecoObjBank endereco;
+    private enderecoObjBank endereco;
 
 
     public medico(dadosCadastro dados) {
-        this.nome=dados.nome();
-        this.especialidade=dados.especialidade();
-        this.crm=dados.crm();
-        this.telefone=dados.telefone();
-        this.endereco=new EnderecoObjBank(dados.endereco());
-        this.email=dados.email();
-
+        this.crm= dados.crm();
+        this.nome= dados.nome();
+        this.email= dados.email();
+        this.telefone= dados.telefone();
+        this.especialidade= dados.especialidade();
+        this.endereco=new enderecoObjBank(dados.dadosendereco());
     }
 }

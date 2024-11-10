@@ -5,12 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-
 @Embeddable
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EnderecoObjBank {
+public class enderecoObjBank {
     private String logradouro;
     private String numero;
     private String complemento;
@@ -19,13 +18,12 @@ public class EnderecoObjBank {
     private String cep;
 
 
-    public EnderecoObjBank(Endereco endereco) {
+    public enderecoObjBank(dadosendereco endereco) {
         this.logradouro=endereco.logradouro();
         this.numero=endereco.numero();
         this.complemento=endereco.complemento();
         this.cidade=endereco.cidade();
         this.uf=endereco.uf();
         this.cep=endereco.cep();
-
     }
 }
