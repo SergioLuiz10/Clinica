@@ -30,7 +30,7 @@ public class medico {
     private enderecoObjBank endereco;
 
 
-    public medico(dadosCadastro dados) {
+    public medico(dadosCadastroMed dados) {
         this.crm= dados.crm();
         this.nome= dados.nome();
         this.email= dados.email();

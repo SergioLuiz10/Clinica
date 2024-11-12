@@ -14,10 +14,10 @@ public record dadosCadastropac(
         @Email
         String email,
         @NotBlank
-                @Pattern(regexp = "\\d{9,13}")
+        @Pattern(regexp = "\\d{9,13}")
         String telefone,
         @NotBlank
-                @Pattern(regexp = "\\d{11}")
+        @Pattern(regexp = "\\d{11}")
         String cpf,
          @NotNull
          @Valid

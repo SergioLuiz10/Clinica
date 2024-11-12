@@ -2,7 +2,7 @@ package medfacs.med.controller;
 
 
 import jakarta.validation.Valid;
-import medfacs.med.model.dadosCadastro;
+import medfacs.med.model.dadosCadastroMed;
 import medfacs.med.model.medico;
 import medfacs.med.model.medicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class medicoController {
 
     @PostMapping
     @Transactional
-    public void cadastro(@RequestBody @Valid dadosCadastro dados){
+    public void cadastro(@RequestBody @Valid dadosCadastroMed dados){
         repository.save(new medico(dados));
     }
 }
