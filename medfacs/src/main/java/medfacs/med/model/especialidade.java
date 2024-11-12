@@ -1,4 +1,4 @@
-package medfacs.med.medico;
+package medfacs.med.model;
 
 public enum especialidade {
     crianca,

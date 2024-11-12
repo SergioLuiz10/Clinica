@@ -1,4 +1,4 @@
-package medfacs.med.medico;
+package medfacs.med.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class medico {
     private String crm;
 
     @Enumerated(EnumType.STRING)//enum
-    private medfacs.med.medico.especialidade especialidade;
+    private medfacs.med.model.especialidade especialidade;
 
     @Embedded//pq o codigo e dividido em mais de um pedaço
     private enderecoObjBank endereco;

@@ -1,4 +1,4 @@
-package medfacs.med.medico;
+package medfacs.med.model;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

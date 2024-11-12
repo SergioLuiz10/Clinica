@@ -1,4 +1,4 @@
-package medfacs.med.paciente;
+package medfacs.med.model;
 
 
 import jakarta.persistence.*;
@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import medfacs.med.endereco.enderecoObjBank;
 
 @Table(name ="paciente")
 @Entity(name ="paciente")
@@ -24,13 +25,13 @@ public class paciente {
     private String cpf;
 
    @Embedded
-    private enderecoObjbankPac enderco;
+    private enderecoObjBank enderco;
 
     public paciente(dadosCadastropac dados) {
         this.name=dados.name();
         this.cpf= dados.cpf();
         this.telefone=dados.telefone();
         this.email= dados.email();
-        this.enderco=new enderecoObjbankPac(dados.endereco());
+        this.enderco=new enderecoObjBank(dados.endereco());
     }
 }
