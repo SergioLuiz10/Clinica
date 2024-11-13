@@ -8,7 +8,9 @@ import jakarta.validation.constraints.Pattern;
 import medfacs.med.endereco.dadosendereco;
 
 public record dadosCadastroMed(
-       @NotBlank
+        @NotBlank
+        String faculdade,
+        @NotBlank
         String nome,
        @NotBlank
                @Email

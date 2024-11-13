@@ -22,7 +22,7 @@ public class medico {
     private String email;
     private String telefone;
     private String crm;
-
+    private String faculdade;
     @Enumerated(EnumType.STRING)//enum
     private medfacs.med.model.especialidade especialidade;
 
@@ -35,6 +35,7 @@ public class medico {
         this.nome= dados.nome();
         this.email= dados.email();
         this.telefone= dados.telefone();
+        this.faculdade=dados.faculdade();
         this.especialidade= dados.especialidade();
         this.endereco=new enderecoObjBank(dados.dadosendereco());
     }
