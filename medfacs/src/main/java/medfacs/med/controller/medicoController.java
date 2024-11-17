@@ -6,10 +6,12 @@ import medfacs.med.model.dadosListagemMed;
 import medfacs.med.model.medico;
 import medfacs.med.model.medicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("medico")
@@ -25,8 +27,8 @@ public class medicoController {
     }
 
     @GetMapping
-    public List<dadosListagemMed> listagem() {
-        return repository.findAll().stream().map(dadosListagemMed::new).toList();
+    public Page<dadosListagemMed> listagem(@PageableDefault(sort = {"nome"},size = 10) Pageable pag) {
+        return repository.findAll(pag).map(dadosListagemMed::new);
 
     }
 
