@@ -34,4 +34,16 @@ public class paciente {
         this.email= dados.email();
         this.enderco=new enderecoObjBank(dados.endereco());
     }
+
+    public  void updatePac(dadosUpdatepac dads) {
+        if(dads.name()!=null){
+            this.name= dads.name();
+        }
+        if(dads.telefone()!=null){
+            this.telefone= dads.telefone();
+        }
+        if (dads.ender()!=null){
+            this.enderco=new enderecoObjBank(dads.ender());
+        }
+    }
 }

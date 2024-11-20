@@ -1,10 +1,7 @@
 package medfacs.med.controller;
 
 import jakarta.validation.Valid;
-import medfacs.med.model.dadosCadastropac;
-import medfacs.med.model.dadosListagemPac;
-import medfacs.med.model.paciente;
-import medfacs.med.model.pacienteRepository;
+import medfacs.med.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +25,13 @@ public class pacienteController {
     @GetMapping
     public Page<dadosListagemPac> listagem(@PageableDefault(size = 10,sort = {"name"}) Pageable pag) {
         return repositorypac.findAll(pag).map(dadosListagemPac::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizacao(@RequestBody @Valid dadosUpdatepac dads){
+      var pac = repositorypac.getReferenceById(dads.id());
+        pac.updatePac(dads);
     }
 }
 

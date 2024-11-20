@@ -29,7 +29,6 @@ public class medico {
     @Embedded//pq o codigo e dividido em mais de um pedaço
     private enderecoObjBank endereco;
 
-
     public medico(dadosCadastroMed dados) {
         this.crm= dados.crm();
         this.nome= dados.nome();
@@ -38,5 +37,17 @@ public class medico {
         this.faculdade=dados.faculdade();
         this.especialidade= dados.especialidade();
         this.endereco=new enderecoObjBank(dados.dadosendereco());
+    }
+
+    public  void updateInf(dadosUpdateMed up) {
+        if(up.nome()!=null){
+            this.nome= up.nome();
+        }
+        if(up.telefone()!=null) {
+            this.telefone=up.telefone();
+        }
+        if(up.endereco()!=null){
+            this.endereco=new enderecoObjBank(up.endereco());
+        }
     }
 }

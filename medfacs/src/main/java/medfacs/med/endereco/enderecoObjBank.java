@@ -26,4 +26,22 @@ public class enderecoObjBank {
         this.uf=endereco.uf();
         this.cep=endereco.cep();
     }
+
+    public enderecoObjBank(enderecoObjBank endd) {
+        if(endd.logradouro!=null){
+            this.logradouro=endd.getLogradouro();
+        }
+        if(endd.numero!=null){
+            this.numero=endd.getNumero();
+        }if(endd.complemento!=null){
+            this.complemento=endd.getComplemento();
+        }if(endd.cidade!=null){
+            this.cidade=endd.getCidade();
+        }if(endd.uf!=null){
+            this.uf=endd.getUf();
+        }
+        if(endd.cep!=null){
+            this.cep=endd.getCep();
+        }
+    }
 }
