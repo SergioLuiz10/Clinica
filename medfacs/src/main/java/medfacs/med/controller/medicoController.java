@@ -25,15 +25,22 @@ public class medicoController {
 
     @GetMapping
     public Page<dadosListagemMed> listagemMed(@PageableDefault(sort = {"nome"},size = 10) Pageable pag) {
-        return repository.findAll(pag).map(dadosListagemMed::new);
+        return repository.findAllByativoTrue(pag).map(dadosListagemMed::new);
 
     }
 
-   @PutMapping
-   @Transactional
+    @PutMapping
+    @Transactional
     public void autalizacao(@RequestBody @Valid dadosUpdateMed up){
      var med = repository.getReferenceById(up.id());
      med.updateInf(up);
+
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void desativar(@PathVariable Long id){
+        var medico = repository.getReferenceById(id);
+        medico.delete();
 
     }
 

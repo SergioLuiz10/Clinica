@@ -27,7 +27,10 @@ public class paciente {
    @Embedded
     private enderecoObjBank enderco;
 
+    private Boolean ativo;
+
     public paciente(dadosCadastropac dados) {
+        this.ativo=true;
         this.name=dados.name();
         this.cpf= dados.cpf();
         this.telefone=dados.telefone();
@@ -45,5 +48,9 @@ public class paciente {
         if (dads.ender()!=null){
             this.enderco=new enderecoObjBank(dads.ender());
         }
+    }
+
+    public void excluir() {
+        this.ativo=false;
     }
 }

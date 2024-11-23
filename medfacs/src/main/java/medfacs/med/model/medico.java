@@ -23,13 +23,17 @@ public class medico {
     private String telefone;
     private String crm;
     private String faculdade;
+    private Boolean ativo;
     @Enumerated(EnumType.STRING)//enum
     private medfacs.med.model.especialidade especialidade;
 
     @Embedded//pq o codigo e dividido em mais de um pedaço
     private enderecoObjBank endereco;
 
+
+
     public medico(dadosCadastroMed dados) {
+        this.ativo=true;
         this.crm= dados.crm();
         this.nome= dados.nome();
         this.email= dados.email();
@@ -49,5 +53,9 @@ public class medico {
         if(up.endereco()!=null){
             this.endereco=new enderecoObjBank(up.endereco());
         }
+    }
+
+    public void delete() {
+        this.ativo=false;
     }
 }

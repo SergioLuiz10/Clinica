@@ -24,14 +24,21 @@ public class pacienteController {
 
     @GetMapping
     public Page<dadosListagemPac> listagem(@PageableDefault(size = 10,sort = {"name"}) Pageable pag) {
-        return repositorypac.findAll(pag).map(dadosListagemPac::new);
+        return repositorypac.findAllByativoTrue(pag).map(dadosListagemPac::new);
     }
 
     @PutMapping
     @Transactional
     public void atualizacao(@RequestBody @Valid dadosUpdatepac dads){
-      var pac = repositorypac.getReferenceById(dads.id());
-        pac.updatePac(dads);
+      var pac = repositorypac.getReferenceById(dads.id());  //aqui vai buscar o paciente pelo id
+        pac.updatePac(dads);// aqui vai trocar os dados
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void deletePac(@PathVariable Long id){
+        var pac = repositorypac.getReferenceById(id);
+        pac.excluir();
     }
 }
 
