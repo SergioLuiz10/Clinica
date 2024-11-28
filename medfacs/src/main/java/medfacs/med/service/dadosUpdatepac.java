@@ -1,8 +1,7 @@
-package medfacs.med.model;
+package medfacs.med.service;
 
 
 import jakarta.validation.constraints.NotNull;
-import medfacs.med.endereco.enderecoObjBank;
 
 public record dadosUpdatepac(
        @NotNull

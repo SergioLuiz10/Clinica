@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import medfacs.med.endereco.enderecoObjBank;
+import medfacs.med.service.enderecoObjBank;
+import medfacs.med.service.dadosCadastroMed;
+import medfacs.med.service.dadosUpdateMed;
 
 @Table(name = "medico")
 @Entity(name = "medico")
@@ -23,14 +25,14 @@ public class medico {
     private String telefone;
     private String crm;
     private String faculdade;
-    private Boolean ativo;
+
     @Enumerated(EnumType.STRING)//enum
-    private medfacs.med.model.especialidade especialidade;
+    private medfacs.med.service.especialidade especialidade;
 
     @Embedded//pq o codigo e dividido em mais de um pedaço
     private enderecoObjBank endereco;
 
-
+    private Boolean ativo;
 
     public medico(dadosCadastroMed dados) {
         this.ativo=true;

@@ -1,5 +1,6 @@
-package medfacs.med.model;
+package medfacs.med.service;
 
+import medfacs.med.model.medico;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

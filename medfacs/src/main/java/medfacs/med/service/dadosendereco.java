@@ -1,4 +1,4 @@
-package medfacs.med.endereco;
+package medfacs.med.service;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

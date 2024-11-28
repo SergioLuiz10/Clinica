@@ -2,6 +2,10 @@ package medfacs.med.controller;
 
 import jakarta.validation.Valid;
 import medfacs.med.model.*;
+import medfacs.med.service.dadosCadastroMed;
+import medfacs.med.service.dadosListagemMed;
+import medfacs.med.service.dadosUpdateMed;
+import medfacs.med.service.medicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +35,7 @@ public class medicoController {
 
     @PutMapping
     @Transactional
-    public void autalizacao(@RequestBody @Valid dadosUpdateMed up){
+    public void atualizacao(@RequestBody @Valid dadosUpdateMed up){
      var med = repository.getReferenceById(up.id());
      med.updateInf(up);
 

@@ -1,11 +1,10 @@
-package medfacs.med.model;
+package medfacs.med.service;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
-import medfacs.med.endereco.dadosendereco;
 
 public record dadosCadastroMed(
         @NotBlank
@@ -22,7 +21,7 @@ public record dadosCadastroMed(
        @Pattern(regexp = "\\d{6}")
        String crm,
        @NotNull
-       especialidade especialidade,
+        medfacs.med.service.especialidade especialidade,
        @NotNull
        @Valid
        dadosendereco dadosendereco) {

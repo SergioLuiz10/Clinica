@@ -1,4 +1,4 @@
-package medfacs.med.endereco;
+package medfacs.med.service;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import medfacs.med.endereco.enderecoObjBank;
+import medfacs.med.service.enderecoObjBank;
+import medfacs.med.service.dadosCadastropac;
+import medfacs.med.service.dadosUpdatepac;
 
 @Table(name ="paciente")
 @Entity(name ="paciente")
@@ -27,10 +29,9 @@ public class paciente {
    @Embedded
     private enderecoObjBank enderco;
 
-    private Boolean ativo;
+
 
     public paciente(dadosCadastropac dados) {
-        this.ativo=true;
         this.name=dados.name();
         this.cpf= dados.cpf();
         this.telefone=dados.telefone();
@@ -50,7 +51,5 @@ public class paciente {
         }
     }
 
-    public void excluir() {
-        this.ativo=false;
-    }
+
 }

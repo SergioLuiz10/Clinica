@@ -2,6 +2,10 @@ package medfacs.med.controller;
 
 import jakarta.validation.Valid;
 import medfacs.med.model.*;
+import medfacs.med.service.dadosCadastropac;
+import medfacs.med.service.dadosListagemPac;
+import medfacs.med.service.dadosUpdatepac;
+import medfacs.med.service.pacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -24,7 +28,7 @@ public class pacienteController {
 
     @GetMapping
     public Page<dadosListagemPac> listagem(@PageableDefault(size = 10,sort = {"name"}) Pageable pag) {
-        return repositorypac.findAllByativoTrue(pag).map(dadosListagemPac::new);
+        return repositorypac.findAll(pag).map(dadosListagemPac::new);
     }
 
     @PutMapping
@@ -37,8 +41,7 @@ public class pacienteController {
     @DeleteMapping("/{id}")
     @Transactional
     public void deletePac(@PathVariable Long id){
-        var pac = repositorypac.getReferenceById(id);
-        pac.excluir();
+        repositorypac.deleteById(id);
     }
 }
 
