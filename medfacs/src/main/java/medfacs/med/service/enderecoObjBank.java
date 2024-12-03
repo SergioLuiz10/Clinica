@@ -16,6 +16,7 @@ public class enderecoObjBank {
     private String cidade;
     private String uf;
     private String cep;
+    private String bairro;
 
 
     public enderecoObjBank(dadosendereco endereco) {
@@ -25,6 +26,7 @@ public class enderecoObjBank {
         this.cidade=endereco.cidade();
         this.uf=endereco.uf();
         this.cep=endereco.cep();
+        this.bairro=endereco.bairro();
     }
 
     public enderecoObjBank(enderecoObjBank endd) {
