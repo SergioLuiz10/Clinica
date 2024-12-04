@@ -26,7 +26,7 @@ public class pacienteController {
     public ResponseEntity cadastropac(@RequestBody @Valid dadosCadastropac dados){
         paciente novoPaciente = repositorypac.save(new paciente(dados)); // Salva o novo paciente
         URI location = URI.create("/paciente/" + novoPaciente.getId()); // Cria a URI do novo paciente
-        return ResponseEntity.created(location).body(new dadosNov(novoPaciente)); // Retorna 201 Created com o recurso
+        return ResponseEntity.created(location).body(new dadosNovoPac(novoPaciente)); // Retorna 201 Created com o recurso
     }
 
     @GetMapping
@@ -42,7 +42,7 @@ public class pacienteController {
       var pac = repositorypac.getReferenceById(dads.id());  //aqui vai buscar o paciente pelo id
         pac.updatePac(dads);// aqui vai trocar os dados
 
-        return ResponseEntity.ok(new dadosNov(pac)); // Retorna os dados atualizados
+        return ResponseEntity.ok(new dadosNovoPac(pac)); // Retorna os dados atualizados
     }
 
     @DeleteMapping("/{id}")
@@ -52,5 +52,14 @@ public class pacienteController {
 
             return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhamento(@PathVariable Long id){
+        var pac = repositorypac.getReferenceById(id);
+
+        return ResponseEntity.ok(new dadosNovoPac(pac) );
+    }
+
+
 }
 
